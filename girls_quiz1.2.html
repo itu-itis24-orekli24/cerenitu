@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl's Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: rgb(249, 207, 235);
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      width: 90%;
+      margin: 20px auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 8px;
+        width: 500px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .username-container {
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 12px;
+      width: 200px;
+    }
+    .username-container input {
+      padding: 8px;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .d-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+    .question {
+      flex: 50%;
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .question:nth-child(odd) {
+      margin-right: 2%;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label {
+      background-color: #fab5d8;
+      border: 2px solid #ea0e87;
+      border-radius: 5px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"]:checked + label {
+      background-color: #f78bc7;
+      color: white;
+    }
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background-color: #ac1d76;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 22px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .comment {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .score-table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+    }
+    .score-table th, .score-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    .score-table th {
+      background-color: #ac1d76;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Beni Ne Kadar İyi Tanıyorsunuz?</h1>
+    <form id="quiz-form">
+      <div class="username-container">
+        <h2>İsminizi girmeyi unutmayın lütfenn. Öpüldünüz.</h2>
+        <input type="text" id="username" placeholder="İsminizi giriniz." required>
+      </div>
+      <div class="d-flex">
+        <div class="question">
+          <p>1. Aşağıdakilerden birini yeme seçeneğim olsa hangisini yerim?</p>
+          <div class="answers">
+            <input type="radio" id="q1a" name="q1" value="a">
+            <label for="q1a">Pizza</label>
+            <input type="radio" id="q1b" name="q1" value="b">
+            <label for="q1b">Hamburger</label>
+            <input type="radio" id="q1c" name="q1" value="c">
+            <label for="q1c">Makarna</label>
+            <input type="radio" id="q1d" name="q1" value="d">
+            <label for="q1d">Katık</label>
+          </div>
+          <p class="comment" id="comment-q1"></p>
+        </div>
+        <div class="question">
+          <p>2. Çıkarken en sevmediğim exim aşağıdakilerden hangisi?</p>
+          <div class="answers">
+            <input type="radio" id="q2a" name="q2" value="a">
+            <label for="q2a">Yağız</label>
+            <input type="radio" id="q2b" name="q2" value="b">
+            <label for="q2b">Batuhan</label>
+            <input type="radio" id="q2c" name="q2" value="c">
+            <label for="q2c">Toprak</label>
+            <input type="radio" id="q2d" name="q2" value="d">
+            <label for="q2d">Adı lazım değil(o..e..)</label>
+          </div>
+          <p class="comment" id="comment-q2"></p>
+        </div>
+      </div>
+  
+      <div class="d-flex">
+          <div class="question">
+              <p>3. Aşağıdakilerden hangisine devam etmek isterdim?</p>
+              <div class="answers">
+                <input type="radio" id="q3a" name="q3" value="a">
+                <label for="q3a">Keman</label>
+                <input type="radio" id="q3b" name="q3" value="b">
+                <label for="q3b">Buz Pateni</label>
+                <input type="radio" id="q3c" name="q3" value="c">
+                <label for="q3c">Jimnastik</label>
+                <input type="radio" id="q3d" name="q3" value="d">
+                <label for="q3d">Yüzme</label>
+              </div>
+              <p class="comment" id="comment-q3"></p>
+          </div>
+          <div class="question">
+              <p>4. Lisede en nefret ettiğim kişi kimdi? (cevabından ben bile emin diilim baya zorladı bu)</p>
+              <div class="answers">
+                <input type="radio" id="q4a" name="q4" value="a">
+                <label for="q4a">Nehir Birdoğan</label>
+                <input type="radio" id="q4b" name="q4" value="b">
+                <label for="q4b">Ahmet Kadir Cengiz</label>
+                <input type="radio" id="q4c" name="q4" value="c">
+                <label for="q4c">Çağan Poyraz Al</label>
+                <input type="radio" id="q4d" name="q4" value="d">
+                <label for="q4d">Rana Yıldız</label>
+              </div>
+              <p class="comment" id="comment-q4"></p>
+            </div>
+           </div>
+           <div class="d-flex">
+            <div class="question">
+              <p>5. Aşağıdaki arkadaşlarımdan hangisi başka bir arkadaşımla çıkmadı?</p>
+              <div class="answers">
+                <input type="radio" id="q5a" name="q5" value="a">
+                <label for="q5a">Mina</label>
+                <input type="radio" id="q5b" name="q5" value="b">
+                <label for="q5b">Deniz</label>
+                <input type="radio" id="q5c" name="q5" value="c">
+                <label for="q5c">Zeliha</label>
+                <input type="radio" id="q5d" name="q5" value="d">
+                <label for="q5d">Defne</label>
+              </div>
+              <p class="comment" id="comment-q5"></p>
+            </div>
+            <div class="question">
+              <p>6. Şimdiye kadar kaç sevgilim oldu?</p>
+              <div class="answers">
+                <input type="radio" id="q6a" name="q6" value="a">
+                <label for="q6a">2</label>
+                <input type="radio" id="q6b" name="q6" value="b">
+                <label for="q6b">3</label>
+                <input type="radio" id="q6c" name="q6" value="c">
+                <label for="q6c">4</label>
+                <input type="radio" id="q6d" name="q6" value="d">
+                <label for="q6d">5</label>
+              </div>
+              <p class="comment" id="comment-q6"></p>
+            </div>
+           </div>
+       <div class="d-flex">
+          <div class="question">
+              <p>7. Safe place'im neresi?(çeldirici şıklar var dikkat)</p>
+              <div class="answers">
+                <input type="radio" id="q7a" name="q7" value="a">
+                <label for="q7a">Kaptan McDonald's</label>
+                <input type="radio" id="q7b" name="q7" value="b">
+                <label for="q7b">Kütüphane Katıkçı (Yuvam Katık)</label>
+                <input type="radio" id="q7c" name="q7" value="c">
+                <label for="q7c">Evim</label>
+                <input type="radio" id="q7d" name="q7" value="d">
+                <label for="q7d">Dedemin evi</label>
+              </div>
+              <p class="comment" id="comment-q7"></p>
+          </div>
+          <div class="question">
+              <p>8. Ne zamandan beri bilgisyar mühendisi olmak istiyorum?</p>
+              <div class="answers">
+                <input type="radio" id="q8a" name="q8" value="a">
+                <label for="q8a">4. sınıf</label>
+                <input type="radio" id="q8b" name="q8" value="b">
+                <label for="q8b">6. sınıf</label>
+                <input type="radio" id="q8c" name="q8" value="c">
+                <label for="q8c">8.sınıf</label>
+                <input type="radio" id="q8d" name="q8" value="d">
+                <label for="q8d">10. sınıf</label>
+              </div>
+              <p class="comment" id="comment-q8"></p>
+            </div>
+       </div>
+       <div class="d-flex">
+          <div class="question">
+              <p>9. Araba sürerken fav sağ koltuğum kimdir?</p>
+              <div class="answers">
+                  <input type="radio" id="q9a" name="q9" value="a">
+                  <label for="q9a">Nehir</label>
+                  <input type="radio" id="q9b" name="q9" value="b">
+                  <label for="q9b">Zeliha</label>
+                  <input type="radio" id="q9c" name="q9" value="c">
+                  <label for="q9c">Deniz</label>
+                  <input type="radio" id="q9d" name="q9" value="d">
+                  <label for="q9d">Naz</label>
+                  <input type="radio" id="q9e" name="q9" value="e">
+                  <label for="q9e">Mina</label>
+              </div>
+              <p class="comment" id="comment-q9"></p>
+          </div>
+          <div class="question">
+              <p>10. Sizce almayı ya da kullanmayı en sevdiğim parça?</p>
+              <div class="answers">
+                  <input type="radio" id="q10a" name="q10" value="a">
+                  <label for="q10a">Kıyafet</label>
+                  <input type="radio" id="q10b" name="q10" value="b">
+                  <label for="q10b">Takı</label>
+                  <input type="radio" id="q10c" name="q10" value="c">
+                  <label for="q1c">Çanta</label>
+                  <input type="radio" id="q10d" name="q10" value="d">
+                  <label for="q10d">Ayakkabı</label>
+              </div>
+              <p class="comment" id="comment-q10"></p>
+          </div>
+       </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <table class="score-table" id="scores-table">
+    <thead>
+      <tr>
+        <th>İsim</th>
+        <th>Skor</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const quizForm = document.getElementById('quiz-form');
+    const usernameInput = document.getElementById('username');
+    const resultDiv = document.getElementById('result');
+    const scoreTableBody = document.querySelector('#scores-table tbody');
+    const correctAnswers = ['a', 'c', 'b', 'd', 'b', 'd', 'a', 'a', 'c', 'b'];
+    const feedback = [
+    {
+      correct: "DOĞRU CEVAP. Bilmesi kolay değildi hayatım tebrikler.",
+      incorrect: "YANLIŞ CEVAP. Kanka yalan yok hepsi olabilirdi yemeği seviyorum genel olarak."
+    },
+    {
+      correct: "DOĞRU CEVAP. Tanıyon he beni. Gönüllerdeki cevap farklı biliyorum ama...",
+      incorrect: "YANLIŞ CEVAP. Knk zaten ilk sevgilim hani. Belki gönlünden geçeni söylemişsindir diyorum ve geçiyorum."
+    },
+    {
+      correct: "DOĞRU CEVAP. Knk diğerlerine gittiğimi bilmiyo bile olabilirsin. Bu beklendikti...",
+      incorrect: "YANLIŞ CEVAP.Keman dediysen oloabilir ama Allah aşkına diğerlerinden sana ne zaman bahsetmişim bi söylesene."
+    },
+    {
+      correct: "DOĞRU CEVAP. İŞTE BU. Ortak bi Rana haterı. Seçmem zor oldu ama...",
+      incorrect: "YANLIŞ CEVAP. Hayatım farkındayım hepsi birbirinden kötüydü. Bunu yanlış yap yargılamıcam."
+    },
+    {
+      correct: "DOĞRU CEVAP. AFERİN. Ça... Po... arkadaşım saymam. (bi de arkadaşımla çıkmayan arkadaşım kalmamış aq)",
+      incorrect: "YANLIŞ CEVAP. ÇOK KIRILDIM. Ça... Po... arkadaşım saymam. (bi de arkadaşımla çıkmayan arkadaşım kalmamış aq)"
+    },
+    {
+      correct: "DOĞRU CEVAP. Aferin kız. Baya tanıyom beni. Öpüyorum ben de seni çok o zaman.",
+      incorrect: "YANLIŞ CEVAP. Arkadaşlar sırasıyla söylüyorum. Toprak, Emirhan, Yağız, Mert, Batuhan. Kesin Emirhan'ı kaçırdın. Keşke ben de kaçırsaydım."
+    },
+    {
+      correct: "DOĞRU CEVAP. Kankaa. İyisin iyi. Çeldirici de koymuştum baya ama yememişsin.",
+      incorrect: "YANLIŞ CEVAP. Haklısın diğerleri de olabilirdi ama... Ben bunu hep söylerim."
+    },
+    {
+      correct: "DOĞRU CEVAP. Bunu bilse bilse Nehir bilir gibi. Kanka şahitsin zaten ama devamke.",
+      incorrect: "YANLIŞ CEVAP. Eveet. Lisede hayatıma giren tayfa. Normal normal. Zati ben de pişmanım."
+    },
+    {
+      correct: "DOĞRU CEVAP. Hepiniziiin yeri ayrı ama... Passenger prensesim Deniz'dir.",
+      incorrect: "YANLIŞ CEVAP. Hepiniziiin yeri ayrı ama... Passenger prensesim Deniz'dir."
+    },
+    {
+      correct: "DOĞRU CEVAP. E knk bi zahmet bunu da bilin. Takıdan bol neyim var.",
+      incorrect: "YANLIŞ CEVAP. Bunu bilemediysen hiç beni görmedin knk heralde. Başka açıklaması yok çünkü."
+    }
+    ];
+    let scores = JSON.parse(localStorage.getItem('quizScores')) || [];
+
+// Render the scores table
+function updateScoreTable() {
+  scoreTableBody.innerHTML = '';
+  scores.forEach(({ username, score }) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${username}</td><td>${score}</td>`;
+    scoreTableBody.appendChild(row);
+  });
+}
+
+// Save scores to localStorage
+function saveScores() {
+  localStorage.setItem('quizScores', JSON.stringify(scores));
+}
+
+quizForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = usernameInput.value.trim();
+  if (!username) {
+    alert("Please enter your username!");
+    return;
+  }
+
+  let score = 0;
+  const userAnswers = Array.from({ length: 10 }, (_, i) => quizForm[`q${i + 1}`]?.value);
+
+  userAnswers.forEach((answer, index) => {
+    const comment = document.getElementById(`comment-q${index + 1}`);
+    if (answer === correctAnswers[index]) {
+      comment.textContent = feedback[index].correct;
+      comment.style.color = 'green';
+      score++;
+    } else {
+      comment.textContent = feedback[index].incorrect;
+      comment.style.color = 'red';
+    }
+  });
+
+  resultDiv.textContent = `Your score is ${score}/${correctAnswers.length}`;
+
+  // Add new score to scores list and save
+  scores.push({ username, score });
+  saveScores();
+  updateScoreTable();
+});
+
+// Initialize the scores table on page load
+updateScoreTable();
+</script>
+</body>
+</html>
