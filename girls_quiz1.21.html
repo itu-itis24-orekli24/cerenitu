@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl's Quiz</title>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Beni Ne Kadar İyi Tanıyorsunuz?</h1>
+    <form id="quiz-form">
+      <div class="username-container">
+        <h2>İsminizi girmeyi unutmayın lütfenn. Öpüldünüz.</h2>
+        <input type="text" id="username" placeholder="İsminizi giriniz." required>
+      </div>
+      <div class="d-flex">
+        <div class="question">
+          <p>1. Aşağıdakilerden birini yeme seçeneğim olsa hangisini yerim?</p>
+          <div class="answers">
+            <input type="radio" id="q1a" name="q1" value="a">
+            <label for="q1a">Pizza</label>
+            <input type="radio" id="q1b" name="q1" value="b">
+            <label for="q1b">Hamburger</label>
+            <input type="radio" id="q1c" name="q1" value="c">
+            <label for="q1c">Makarna</label>
+            <input type="radio" id="q1d" name="q1" value="d">
+            <label for="q1d">Katık</label>
+          </div>
+          <p class="comment" id="comment-q1"></p>
+        </div>
+        <div class="question">
+          <p>2. Çıkarken en sevmediğim exim aşağıdakilerden hangisi?</p>
+          <div class="answers">
+            <input type="radio" id="q2a" name="q2" value="a">
+            <label for="q2a">Yağız</label>
+            <input type="radio" id="q2b" name="q2" value="b">
+            <label for="q2b">Batuhan</label>
+            <input type="radio" id="q2c" name="q2" value="c">
+            <label for="q2c">Toprak</label>
+            <input type="radio" id="q2d" name="q2" value="d">
+            <label for="q2d">Adı lazım değil(o..e..)</label>
+          </div>
+          <p class="comment" id="comment-q2"></p>
+        </div>
+      </div>
+  
+      <div class="d-flex">
+          <div class="question">
+              <p>3. Aşağıdakilerden hangisine devam etmek isterdim?</p>
+              <div class="answers">
+                <input type="radio" id="q3a" name="q3" value="a">
+                <label for="q3a">Keman</label>
+                <input type="radio" id="q3b" name="q3" value="b">
+                <label for="q3b">Buz Pateni</label>
+                <input type="radio" id="q3c" name="q3" value="c">
+                <label for="q3c">Jimnastik</label>
+                <input type="radio" id="q3d" name="q3" value="d">
+                <label for="q3d">Yüzme</label>
+              </div>
+              <p class="comment" id="comment-q3"></p>
+          </div>
+          <div class="question">
+              <p>4. Lisede en nefret ettiğim kişi kimdi? (cevabından ben bile emin diilim baya zorladı bu)</p>
+              <div class="answers">
+                <input type="radio" id="q4a" name="q4" value="a">
+                <label for="q4a">Nehir Birdoğan</label>
+                <input type="radio" id="q4b" name="q4" value="b">
+                <label for="q4b">Ahmet Kadir Cengiz</label>
+                <input type="radio" id="q4c" name="q4" value="c">
+                <label for="q4c">Çağan Poyraz Al</label>
+                <input type="radio" id="q4d" name="q4" value="d">
+                <label for="q4d">Rana Yıldız</label>
+              </div>
+              <p class="comment" id="comment-q4"></p>
+            </div>
+           </div>
+           <div class="d-flex">
+            <div class="question">
+              <p>5. Aşağıdaki arkadaşlarımdan hangisi başka bir arkadaşımla çıkmadı?</p>
+              <div class="answers">
+                <input type="radio" id="q5a" name="q5" value="a">
+                <label for="q5a">Mina</label>
+                <input type="radio" id="q5b" name="q5" value="b">
+                <label for="q5b">Deniz</label>
+                <input type="radio" id="q5c" name="q5" value="c">
+                <label for="q5c">Zeliha</label>
+                <input type="radio" id="q5d" name="q5" value="d">
+                <label for="q5d">Defne</label>
+              </div>
+              <p class="comment" id="comment-q5"></p>
+            </div>
+            <div class="question">
+              <p>6. Şimdiye kadar kaç sevgilim oldu?</p>
+              <div class="answers">
+                <input type="radio" id="q6a" name="q6" value="a">
+                <label for="q6a">2</label>
+                <input type="radio" id="q6b" name="q6" value="b">
+                <label for="q6b">3</label>
+                <input type="radio" id="q6c" name="q6" value="c">
+                <label for="q6c">4</label>
+                <input type="radio" id="q6d" name="q6" value="d">
+                <label for="q6d">5</label>
+              </div>
+              <p class="comment" id="comment-q6"></p>
+            </div>
+           </div>
+       <div class="d-flex">
+          <div class="question">
+              <p>7. Safe place'im neresi?(çeldirici şıklar var dikkat)</p>
+              <div class="answers">
+                <input type="radio" id="q7a" name="q7" value="a">
+                <label for="q7a">Kaptan McDonald's</label>
+                <input type="radio" id="q7b" name="q7" value="b">
+                <label for="q7b">Kütüphane Katıkçı (Yuvam Katık)</label>
+                <input type="radio" id="q7c" name="q7" value="c">
+                <label for="q7c">Evim</label>
+                <input type="radio" id="q7d" name="q7" value="d">
+                <label for="q7d">Dedemin evi</label>
+              </div>
+              <p class="comment" id="comment-q7"></p>
+          </div>
+          <div class="question">
+              <p>8. Ne zamandan beri bilgisyar mühendisi olmak istiyorum?</p>
+              <div class="answers">
+                <input type="radio" id="q8a" name="q8" value="a">
+                <label for="q8a">4. sınıf</label>
+                <input type="radio" id="q8b" name="q8" value="b">
+                <label for="q8b">6. sınıf</label>
+                <input type="radio" id="q8c" name="q8" value="c">
+                <label for="q8c">8.sınıf</label>
+                <input type="radio" id="q8d" name="q8" value="d">
+                <label for="q8d">10. sınıf</label>
+              </div>
+              <p class="comment" id="comment-q8"></p>
+            </div>
+       </div>
+       <div class="d-flex">
+          <div class="question">
+              <p>9. Araba sürerken fav sağ koltuğum kimdir?</p>
+              <div class="answers">
+                  <input type="radio" id="q9a" name="q9" value="a">
+                  <label for="q9a">Nehir</label>
+                  <input type="radio" id="q9b" name="q9" value="b">
+                  <label for="q9b">Zeliha</label>
+                  <input type="radio" id="q9c" name="q9" value="c">
+                  <label for="q9c">Deniz</label>
+                  <input type="radio" id="q9d" name="q9" value="d">
+                  <label for="q9d">Naz</label>
+                  <input type="radio" id="q9e" name="q9" value="e">
+                  <label for="q9e">Mina</label>
+              </div>
+              <p class="comment" id="comment-q9"></p>
+          </div>
+          <div class="question">
+              <p>10. Sizce almayı ya da kullanmayı en sevdiğim parça?</p>
+              <div class="answers">
+                  <input type="radio" id="q10a" name="q10" value="a">
+                  <label for="q10a">Kıyafet</label>
+                  <input type="radio" id="q10b" name="q10" value="b">
+                  <label for="q10b">Takı</label>
+                  <input type="radio" id="q10c" name="q10" value="c">
+                  <label for="q1c">Çanta</label>
+                  <input type="radio" id="q10d" name="q10" value="d">
+                  <label for="q10d">Ayakkabı</label>
+              </div>
+              <p class="comment" id="comment-q10"></p>
+          </div>
+       </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+  <table class="score-table" id="scores-table">
+    <thead>
+      <tr>
+        <th>İsim</th>
+        <th>Skor</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>
