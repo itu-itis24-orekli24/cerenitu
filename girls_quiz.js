@@ -4,14 +4,14 @@
     import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 
     const firebaseConfig = {
-        apiKey: "AIzaSyAvDJaV2DATIJP3N6iovAqlw-YuNWMZGIg",
-        authDomain: "girl-s-quiz.firebaseapp.com",
-        databaseURL: "https://girl-s-quiz-default-rtdb.firebaseio.com", // Add databaseURL for Firebase Realtime Database
-        projectId: "girl-s-quiz",
-        storageBucket: "girl-s-quiz.appspot.com",
-        messagingSenderId: "271949931973",
-        appId: "1:271949931973:web:15336bf7017a2ced8257ac",
-        measurementId: "G-6Z8WQHRHE7"
+        apiKey : "AIzaSyAvDJaV2DATIJP3N6iovAqlw-YuNWMZGIg" , 
+        authDomain : "girl-s-quiz.firebaseapp.com" , 
+        databaseURL : "https://girl-s-quiz-default-rtdb.europe-west1.firebasedatabase.app" , 
+        projectId : "girl-s-quiz" , 
+        storageBucket : "girl-s-quiz.firebasestorage.app" , 
+        messagingSenderId : "271949931973" , 
+        appId : "1:271949931973:web:15336bf7017a2ced8257ac" , 
+        measurementId : "G-6Z8WQHRHE7" 
     };
 
     const app = initializeApp(firebaseConfig);
