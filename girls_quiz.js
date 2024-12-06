@@ -1,87 +1,44 @@
 <script type="module">
-    // Firebase Setup
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getDatabase, ref, set, push, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 
     const firebaseConfig = {
-        apiKey : "AIzaSyAvDJaV2DATIJP3N6iovAqlw-YuNWMZGIg" , 
-        authDomain : "girl-s-quiz.firebaseapp.com" , 
-        databaseURL : "https://girl-s-quiz-default-rtdb.europe-west1.firebasedatabase.app" , 
-        projectId : "girl-s-quiz" , 
-        storageBucket : "girl-s-quiz.firebasestorage.app" , 
-        messagingSenderId : "271949931973" , 
-        appId : "1:271949931973:web:15336bf7017a2ced8257ac" , 
-        measurementId : "G-6Z8WQHRHE7" 
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
     };
 
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
 
-    // DOM Elements
-    const quizForm = document.getElementById('quiz-form');
-    const usernameInput = document.getElementById('username');
-    const resultDiv = document.getElementById('result');
-    const scoreTableBody = document.querySelector('#scores-table tbody');
-    const correctAnswers = ['a', 'c', 'b', 'd', 'b', 'd', 'a', 'a', 'c', 'b'];
-    const feedback = [
-        {
-            correct: "DOĞRU CEVAP. Bilmesi kolay değildi hayatım tebrikler.",
-            incorrect: "YANLIŞ CEVAP. Kanka yalan yok hepsi olabilirdi yemeği seviyorum genel olarak."
-        },
-        // Add the rest of your feedback here...
-    ];
-
-    // Save Scores to Firebase
-    function saveScoresToFirebase(username, score) {
+    // Save a new score to Firebase
+    function saveScoreToFirebase(username, score) {
         const scoresRef = ref(database, 'quizScores');
         push(scoresRef, { username, score });
     }
 
-    // Update Score Table from Firebase
+    // Retrieve scores and update the table
     function updateScoreTableFromFirebase() {
         const scoresRef = ref(database, 'quizScores');
         onValue(scoresRef, (snapshot) => {
-            scoreTableBody.innerHTML = ''; // Clear the table
             const scores = snapshot.val();
+            const tableBody = document.querySelector('#scores-table tbody');
+            tableBody.innerHTML = ''; // Clear the table
+
             for (let id in scores) {
                 const { username, score } = scores[id];
                 const row = document.createElement('tr');
                 row.innerHTML = `<td>${username}</td><td>${score}</td>`;
-                scoreTableBody.appendChild(row);
+                tableBody.appendChild(row);
             }
         });
     }
 
-    // Quiz Submission
-    quizForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const username = usernameInput.value.trim();
-        if (!username) {
-            alert("Please enter your username!");
-            return;
-        }
-
-        let score = 0;
-        const userAnswers = Array.from({ length: 10 }, (_, i) => quizForm[`q${i + 1}`]?.value);
-
-        userAnswers.forEach((answer, index) => {
-            const comment = document.getElementById(`comment-q${index + 1}`);
-            if (answer === correctAnswers[index]) {
-                comment.textContent = feedback[index].correct;
-                comment.style.color = 'green';
-                score++;
-            } else {
-                comment.textContent = feedback[index].incorrect;
-                comment.style.color = 'red';
-            }
-        });
-
-        resultDiv.textContent = `Your score is ${score}/${correctAnswers.length}`;
-
-        // Save to Firebase and update table
-        saveScoresToFirebase(username, score);
-    });
-
-    // Initialize the scores table on page load
+    // Call the function to update scores on page load
     updateScoreTableFromFirebase();
 </script>
